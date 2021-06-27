@@ -51,10 +51,8 @@ update_characters_left(lowercase_letters)
 uppercase_letters = get_correct_answer("How many uppercase letters you want to have? \n")
 update_characters_left(uppercase_letters)
 
-
 special_chars = get_correct_answer("How many special characters you want to have? \n")
 update_characters_left(special_chars)
-
 
 digits = get_correct_answer("How many digits you want to have? \n")
 update_characters_left(digits)
@@ -62,7 +60,6 @@ update_characters_left(digits)
 if characters_left > 0:
     print("You did not use all of available characters. Your password will be populated with lowercase letters")
     lowercase_letters += characters_left
-
 
 summarize()
 
@@ -81,7 +78,6 @@ for _ in range(password_len):
         digits -= 1
 
 random.shuffle(password)
-
 
 print("Your password is: ", "".join(password))
 
