@@ -15,6 +15,20 @@ def update_characters_left(number_of_characters):
     else:
         characters_left -= number_of_characters
 
+def get_correct_answer(prompt):
+    while True:
+        try:
+            value = int(input(prompt))
+            if value < 0:
+                print("Please enter a positive number")
+                continue
+            else:
+                break
+        except ValueError:
+            print("Enter correct value")
+        
+    return value
+
 def summarize():
     print('Password length: {password_len}'.format(password_len = password_len))
     print('Lowercase letters: {lowercase_letters}'.format(lowercase_letters = lowercase_letters))
@@ -23,7 +37,7 @@ def summarize():
     print('Digits: {digits}'.format(digits = digits))
 
 
-password_len = int(input("how long your password needs to be? \n"))
+password_len = get_correct_answer("how long your password needs to be? \n")
 
 if password_len < 5:
     print("Your password is waaaaay to short. Please enter more than 5 characters")
@@ -31,18 +45,18 @@ if password_len < 5:
 else:
     characters_left = password_len
 
-lowercase_letters = int(input("How many lowercase letters you want to have? \n"))
+lowercase_letters = get_correct_answer("How many lowercase letters you want to have? \n")
 update_characters_left(lowercase_letters)
 
-uppercase_letters = int(input("How many uppercase letters you want to have? \n"))
+uppercase_letters = get_correct_answer("How many uppercase letters you want to have? \n")
 update_characters_left(uppercase_letters)
 
 
-special_chars = int(input("How many special characters you want to have? \n"))
+special_chars = get_correct_answer("How many special characters you want to have? \n")
 update_characters_left(special_chars)
 
 
-digits = int(input("How many digits you want to have? \n"))
+digits = get_correct_answer("How many digits you want to have? \n")
 update_characters_left(digits)
 
 if characters_left > 0:
